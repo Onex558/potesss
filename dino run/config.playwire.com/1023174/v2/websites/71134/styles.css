@@ -1,0 +1,47 @@
+#trendi-container .pw-ad-scroll-container {
+  background: #000!important;
+}
+
+#pw-oop-bottom_rail { 
+  background-color: #060D19!important;
+  padding-top: 0px!important;
+}
+
+/*2026 search page needs height for sky + ad label/report*/
+div[id^="sky-"].ad-placeholder {
+  height: 700px!important;
+}
+
+/*Cat page: Put opt button above bottom rail*/
+.fc-ccpa-root {
+  bottom: 80px!important;
+  z-index: 2147483643!important
+}
+
+/* report ad Pub large image x-button discrepancy fix */
+.report_ad_close > img {
+    max-height: 10px !important;
+    max-width: 10px !important;
+}
+.report_ad_modal .report_ad_close img {
+    display: none !important;
+}
+.report_ad_modal_show .report_ad_close img {
+    display: block !important;
+}
+
+/*9/5/2023 custom banner css*/
+#adl-report-ad-modal {
+    color: #000
+}
+
+/*
+.pw_report_ad_container {
+    transform: scale(1.25);
+}
+*/
+
+/*Center rewarded/midgame video*/
+#afg_container { 
+  width: unset!important;
+}
