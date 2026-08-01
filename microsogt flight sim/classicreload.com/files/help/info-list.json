@@ -1,0 +1,100 @@
+[
+  {
+    "id": "adblockplus",
+    "logo": "/files/help/logo/adBlockPlus.png",
+    "title": "AdBlock Plus",
+    "steps": "<p><strong>Step 1:</strong><br>Click the Adblock Plus icon in the browser extension area of your browser (upper right-hand corner).</p><p><strong>Step 2:</strong><br>Turn the toggle to \"off\".</p><p><strong>Step 3:</strong><br>Refresh the page.</p>",
+    "figure": "/files/help/instructions/adBlockPlus.png"
+  },
+  {
+    "id": "ublockorigin",
+    "logo": "/files/help/logo/ublockorigin.png",
+    "title": "uBlock Origin",
+    "steps": "<p><strong>Step 1:</strong><br>Click the UBlock Origin icon in the browser extension area of your browser (upper right-hand corner).</p><p><strong>Step 2:</strong><br>Click the \"power\" button to disable uBlock.</p><p><strong>Step 3:</strong><br>Refresh the page.</p>",
+    "figure": "/files/help/instructions/uBlockOrigin.png"
+  },
+  {
+    "id": "adblock",
+    "logo": "/files/help/logo/adblock.png",
+    "title": "Adblock",
+    "steps": "<p><strong>Step 1:</strong><br>Click the Adblock icon in the browser extension area of your browser (upper right-hand corner).</p><p><strong>Step 2:</strong><br>Click \"Don't run on pages in this site/domain\", then click \"Exclude\".</p><p><strong>Step 3:</strong><br>Still seeing this message? Refresh the page.</p>",
+    "figure": "/files/help/instructions/adBlock.png"
+  },
+  {
+    "id": "adguard",
+    "logo": "/files/help/logo/adguard.png",
+    "title": "AdGuard",
+    "steps": "<p><strong>Step 1:</strong><br>Click the AdGuard icon in the browser extension area of your browser (upper right-hand corner).</p><p><strong>Step 2:</strong><br>Turn the toggle to \"off\".</p><p><strong>Step 3:</strong><br>Still seeing this message? Refresh the page.</p>",
+    "figure": "/files/help/instructions/adGuard.png"
+  },
+  {
+    "id": "ghostery",
+    "logo": "/files/help/logo/ghostery.png",
+    "title": "Ghostery",
+    "steps": "<p><strong>Step 1:</strong><br>Click the Ghostery icon in the browser extension area of your browser (upper right-hand corner).</p><p><strong>Step 2:</strong><br>Click \"Trust Site\".</p><p><strong>Step 3:</strong><br>Refresh/reload the page.</p>",
+    "figure": "/files/help/instructions/ghostery.png"
+  },
+  {
+    "id": "ublockplus",
+    "logo": "/files/help/logo/ublock.png",
+    "title": "uBlock Plus",
+    "steps": "<p><strong>Step 1:</strong><br>Click the uBlock icon in the browser extension area of your browser (upper right-hand corner).</p><p><strong>Step 2:</strong><br>Click blue \"check mark\" button.</p><p><strong>Step 3:</strong><br>Refresh the page.</p>",
+    "figure": "/files/help/instructions/uBlockPlus.png"
+  },
+  {
+    "id": "adblockerultimate",
+    "logo": "/files/help/logo/adBlockerUltimate.png",
+    "title": "Ad Blocker Ultimate",
+    "steps": "<p><strong>Step 1:</strong><br>Click the AdBlocker Ultimate icon in the browser extension area of your browser (upper right-hand corner).</p><p><strong>Step 2:</strong><br>Click \"Enabled on this site\".</p><p><strong>Step 3:</strong><br>Refresh the page.</p>",
+    "figure": "/files/help/instructions/adBlockerUltimate.png"
+  },
+  {
+    "id": "ublocker",
+    "logo": "/files/help/logo/uBlocker.png",
+    "title": "uBlocker",
+    "steps": "<p><strong>Step 1:</strong><br>Click the uBlocker icon in the browser extension area of your browser (upper right-hand corner).</p><p><strong>Step 2:</strong><br>Click \"Don't run on pages on this domain/site\" then click \"Exclude\".</p><p><strong>Step 3:</strong><br>Still seeing this message? Refresh the page.</p>",
+    "figure": "/files/help/instructions/uBlocker.png"
+  },
+  {
+    "id": "adblockinc",
+    "logo": "/files/help/logo/adBlockInc.png",
+    "title": "AdBlock (Inc)",
+    "steps": "<p><strong>Step 1:</strong><br>Click the AdBlock (inc) icon in the browser extension area of your browser (upper right-hand corner).</p><p><strong>Step 2:</strong><br>Click \"Don't run on pages on this domain/site\" then click \"Exclude\".</p><p><strong>Step 3:</strong><br>Still seeing this message? Refresh the page.</p>",
+    "figure": "/files/help/instructions/adBlockInc.png"
+  },
+  {
+    "id": "adskilleradblocker",
+    "logo": "/files/help/logo/adsKiller.png",
+    "title": "Ads Killer AdBlocker",
+    "steps": "<p><strong>Step 1:</strong><br>Click the Ads Killer AdBlocker icon in the browser extension area of your browser (upper right-hand corner).</p><p><strong>Step 2:</strong><br>Click the blue \"check mark\" button.</p><p><strong>Step 3:</strong><br>Refresh the page.</p>",
+    "figure": "/files/help/instructions/adsKiller.png"
+  },
+  {
+    "id": "adblockergenesis",
+    "logo": "/files/help/logo/genesis.png",
+    "title": "AdBlocker Genesis",
+    "steps": "<p><strong>Step 1:</strong><br>Click the AdBlocker Genesis icon in the browser extension area of your browser (upper right-hand corner).</p><p><strong>Step 2:</strong><br>Select \"Whitelist website\".</p><p><strong>Step 3:</strong><br>Refresh the page.</p>",
+    "figure": "/files/help/instructions/genesis.png"
+  },
+  {
+    "id": "adawareadblock",
+    "logo": "/files/help/logo/adaware.png",
+    "title": "Adaware Ad Block",
+    "steps": "<p><strong>Step 1:</strong><br>Click the Adaware Ad Block icon in the browser extension area of your browser (upper right-hand corner).</p><p><strong>Step 2:</strong><br>Click the \"power\" button to disable Adaware Ad Block.</p><p><strong>Step 3:</strong><br>Refresh/Reload the page.</p>",
+    "figure": "/files/help/instructions/adaware.png"
+  },
+  {
+    "id": "adblockpro",
+    "logo": "/files/help/logo/adBlockPro.png",
+    "title": "Ad-Block Pro",
+    "steps": "<p><strong>Step 1:</strong><br>Click the AdBlocker Pro icon in the browser extension area of your browser (upper right-hand corner).</p><p><strong>Step 2:</strong><br>Toggle the \"+ Ads Blocked\" button to \"off/x\"</p><p><strong>Step 3:</strong><br>Refresh the page.</p>",
+    "figure": "/files/help/instructions/adBlockPro.png"
+  },
+  {
+    "id": "holaadremover",
+    "logo": "/files/help/logo/hola.png",
+    "title": "Hola ad remover",
+    "steps": "<p><strong>Step 1:</strong><br>Click the Hola ad remover icon in the browser extension area of your browser (upper right-hand corner).</p><p><strong>Step 2:</strong><br>Click \"Enabled on this site\".</p><p><strong>Step 3:</strong><br>Refresh the page.</p>",
+    "figure": "/files/help/instructions/hola.png"
+  }
+]

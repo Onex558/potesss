@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" version="XHTML+RDFa 1.0" dir="ltr"
+
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:dc="http://purl.org/dc/terms/"
+  xmlns:foaf="http://xmlns.com/foaf/0.1/"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:sioc="http://rdfs.org/sioc/ns#"
+  xmlns:sioct="http://rdfs.org/sioc/types#"
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+  <head profile="http://www.w3.org/1999/xhtml/vocab">
+        <link rel="canonical" href="https://classicreload.com/microsoft-flight-simulator-v5.html" />
+        <style>
+      @font-face {
+        font-family:'Ubuntu';
+        font-style:normal;
+        font-weight:400;
+        font-display:swap;
+        src:url(/sites/all/themes/marinelli.del/fonts/ubuntu/Ubuntu-Regular.ttf)
+      }
+      @font-face {
+        font-family:'Ubuntu';
+        font-style:normal;
+        font-weight:700;
+        font-display:swap;
+        src:url(/sites/all/themes/marinelli.del/fonts/ubuntu/Ubuntu-Bold.ttf)
+      }
+      body,html {
+        margin:0;
+        padding:0
+      }
+      body,.form-text,.form-textarea {
+        font-size:75%;
+        font-family:Ubuntu,"Helvetica Neue",Arial,Helvetica,sans-serif;
+        color:#333
+      }
+      .game-window .game-link img {
+        width: 100%;
+        height: auto;
+      }
+    </style>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="https://classicreload.com/sites/default/files/favicon.ico" type="image/vnd.microsoft.icon" />
+<meta name="robots" content="noindex" />
+    <title>Microsoft Flight Simulator 5.0 | ClassicReload.com</title>
+    <script type="text/javascript">
+      var cookies = document.cookie.split("; ");
+      function downloadJsAtOnload() {
+        // Privacy manager
+        // InMobi Choice. Consent Manager Tag v3.0 (for TCF 2.2)
+        (function() {
+          var host = 'classicreload.com';
+          var element = document.createElement('script');
+          var firstScript = document.getElementsByTagName('script')[0];
+          var url = 'https://cmp.inmobi.com'
+            .concat('/choice/', 'Q_PLb0h7WgByK', '/', host, '/choice.js?tag_version=V3');
+          var uspTries = 0;
+          var uspTriesLimit = 3;
+          element.async = true;
+          element.type = 'text/javascript';
+          element.src = url;
+          firstScript.parentNode.insertBefore(element, firstScript);
+          function makeStub() {
+            var TCF_LOCATOR_NAME = '__tcfapiLocator';
+            var queue = [];
+            var win = window;
+            var cmpFrame;
+            function addFrame() {
+              var doc = win.document;
+              var otherCMP = !!(win.frames[TCF_LOCATOR_NAME]);
+              if (!otherCMP) {
+                if (doc.body) {
+                  var iframe = doc.createElement('iframe');
+                  iframe.style.cssText = 'display:none';
+                  iframe.name = TCF_LOCATOR_NAME;
+                  doc.body.appendChild(iframe);
+                } else {
+                  setTimeout(addFrame, 5);
+                }
+              }
+              return !otherCMP;
+            }
+            function tcfAPIHandler() {
+              var gdprApplies;
+              var args = arguments;
+              if (!args.length) {
+                return queue;
+              } else if (args[0] === 'setGdprApplies') {
+                if (
+                  args.length > 3 &&
+                  args[2] === 2 &&
+                  typeof args[3] === 'boolean'
+                ) {
+                  gdprApplies = args[3];
+                  if (typeof args[2] === 'function') {
+                    args[2]('set', true);
+                  }
+                }
+              } else if (args[0] === 'ping') {
+                var retr = {
+                  gdprApplies: gdprApplies,
+                  cmpLoaded: false,
+                  cmpStatus: 'stub'
+                };
+                if (typeof args[2] === 'function') {
+                  args[2](retr);
+                }
+              } else {
+                if(args[0] === 'init' && typeof args[3] === 'object') {
+                  args[3] = Object.assign(args[3], { tag_version: 'V3' });
+                }
+                queue.push(args);
+              }
+            }
+            function postMessageEventHandler(event) {
+              var msgIsString = typeof event.data === 'string';
+              var json = {};
+              try {
+                if (msgIsString) {
+                  json = JSON.parse(event.data);
+                } else {
+                  json = event.data;
+                }
+              } catch (ignore) {}
+              var payload = json.__tcfapiCall;
+              if (payload) {
+                window.__tcfapi(
+                  payload.command,
+                  payload.version,
+                  function(retValue, success) {
+                    var returnMsg = {
+                      __tcfapiReturn: {
+                        returnValue: retValue,
+                        success: success,
+                        callId: payload.callId
+                      }
+                    };
+                    if (msgIsString) {
+                      returnMsg = JSON.stringify(returnMsg);
+                    }
+                    if (event && event.source && event.source.postMessage) {
+                      event.source.postMessage(returnMsg, '*');
+                    }
+                  },
+                  payload.parameter
+                );
+              }
+            }
+            while (win) {
+              try {
+                if (win.frames[TCF_LOCATOR_NAME]) {
+                  cmpFrame = win;
+                  break;
+                }
+              } catch (ignore) {}
+              if (win === window.top) {
+                break;
+              }
+              win = win.parent;
+            }
+            if (!cmpFrame) {
+              addFrame();
+              win.__tcfapi = tcfAPIHandler;
+              win.addEventListener('message', postMessageEventHandler, false);
+            }
+          };
+          makeStub();
+          var uspStubFunction = function() {
+            var arg = arguments;
+            if (typeof window.__uspapi !== uspStubFunction) {
+              setTimeout(function() {
+                if (typeof window.__uspapi !== 'undefined') {
+                  window.__uspapi.apply(window.__uspapi, arg);
+                }
+              }, 500);
+            }
+          };
+          var checkIfUspIsReady = function() {
+            uspTries++;
+            if (window.__uspapi === uspStubFunction && uspTries < uspTriesLimit) {
+              console.warn('USP is not accessible');
+            } else {
+              clearInterval(uspInterval);
+            }
+          };
+          if (typeof window.__uspapi === 'undefined') {
+            window.__uspapi = uspStubFunction;
+            var uspInterval = setInterval(checkIfUspIsReady, 6000);
+          }
+        })();
+        // End InMobi Choice. Consent Manager Tag v3.0 (for TCF 2.2)
+
+        // WG Universal TAG start for classicreload.com
+        //(function (s, g) {
+            //a = s.createElement("script"),
+            //m = s.getElementsByTagName("script")[0];
+            //a.async = 1;
+            //a.src = g;
+            //m.parentNode.insertBefore(a, m)
+        //})(document, "https://universal.wgplayer.com/tag/?lh=" + window.location.hostname + '&wp=' + window.location.pathname + '&ws=' + window.location.search);
+
+        // Ads by google
+        var element = document.createElement("script");
+        element.setAttribute("data-ad-client", "ca-pub-3730271461974795");
+        element.async = true;
+        element.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
+        document.body.appendChild(element);
+
+        //Start Global site tag (gtag.js)
+        var element = document.createElement("script");
+        element.async = true;
+        element.src = "https://www.googletagmanager.com/gtag/js?id=UA-41996113-17";
+        document.body.appendChild(element);
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-41996113-17');
+
+        // Google Tag Manager
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-W8FG2GT');
+
+        //btloader
+        var element = document.createElement("script");
+        element.async = true;
+        element.defer = true;
+        element.src = "https://btloader.com/tag?o=5766703155773440&upapi=true";
+        document.head.appendChild(element);
+
+        //adverge
+        var element = document.createElement("script");
+        element.async = true;
+        element.src = "https://cdn.adverge.ai/adv.classicreload.js";
+        document.head.appendChild(element);
+
+        document.getElementsByTagName("html")[0].removeEventListener('mousemove', downloadJsAtOnload);
+        document.getElementsByTagName("html")[0].removeEventListener('touchstart', downloadJsAtOnload);
+
+        if (!cookies.includes("msg=show")) {
+          document.cookie = "msg=show; path=/;";
+        }
+      };
+      window.onload = function() {
+        if (!window.location.pathname.startsWith('/play/')) {
+          document.getElementsByTagName("html")[0].addEventListener('mousemove', downloadJsAtOnload);
+          document.getElementsByTagName("html")[0].addEventListener('touchstart', downloadJsAtOnload);
+        }
+        else {
+          downloadJsAtOnload();
+        }
+      }
+    </script>
+    <link type="text/css" rel="stylesheet" href="https://classicreload.com/sites/default/files/css/css__YQQ1FtSoRAw0JpORnE2AoJ1p0T0yHmh1tvfgV6yaNw.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://classicreload.com/sites/default/files/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://classicreload.com/sites/default/files/css/css_0rdNKyAx9df4tRKovKjnVDsGvZwVuYAKO-m17AAJ1Dk.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://classicreload.com/sites/default/files/css/css_4h3Qzual2xVbVhFfXVmze4zrDvTIHaxl88-l0f4tK_w.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://classicreload.com/sites/default/files/css/css_piE-aUSkWPe8w9TG5vOQ2SWKSNH-QIYZIQathXklMC4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://classicreload.com/sites/default/files/css/css_LIUxS_BXV0IHW10hhG8o8rz9_7sAvnD_TZlN7zVwkYU.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://classicreload.com/sites/default/files/css/css_rSbMAudflQzB73dSQAm_OcgIayii0HuJf7eALvCFwug.css" media="print" />
+<link type="text/css" rel="stylesheet" href="https://classicreload.com/sites/default/files/css/css_G16m0e59Y28bXS9VQvZ93dMrikmfs599-rczjdJR5mA.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://classicreload.com/sites/default/files/css/css_g85RfIlLl8MnwLVZuREQrmrkTwZDt3Fmj0T2W2NBNfo.css" media="all" />
+    <script type="text/javascript" src="https://classicreload.com/sites/default/files/js/js_REG3CZOoor1nVIbrpfclY9Xi6iLjPIXhLIbTaAh2Tm8.js"></script>
+<script type="text/javascript" src="https://classicreload.com/sites/default/files/js/js_ABmKLME908v6LluR30zoMZVQnuaBMOStzLi2g_YQUSk.js"></script>
+<script type="text/javascript" src="https://classicreload.com/sites/default/files/js/js_R9UbiVw2xuTUI0GZoaqMDOdX0lrZtgX-ono8RVOUEVc.js"></script>
+<script type="text/javascript" src="https://classicreload.com/sites/default/files/js/js_6tDvCiVdHfabjdfoQU6tB4P7keNY6IHMKCytSRFkrfs.js"></script>
+<script type="text/javascript" src="https://classicreload.com/sites/default/files/js/js_SXLnl-kCjwGrJpaLG5SfJ3ctPllWj2Z3VYOdjSc0DwA.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","setHasJsCookie":0,"ajaxPageState":{"theme":"marinelli","theme_token":"cyLDJNZbFYDbP_fNAxaZsRS4eO7yPj4iaVtFt8YTL0A","js":{"sites\/all\/themes\/marinelli.del\/js\/emulator_init.js":1,"sites\/all\/themes\/marinelli.del\/js\/emulator_keyboard_init.js":1,"sites\/all\/themes\/marinelli.del\/js\/simple-keyboard\/build\/index.js":1,"sites\/all\/themes\/marinelli.del\/js\/emulator_keyboard.js":1,"misc\/jquery.js":1,"misc\/jquery-extend-3.4.0.js":1,"misc\/jquery-html-prefilter-3.5.0-backport.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"misc\/ui\/jquery.ui.core.min.js":1,"misc\/ui\/jquery.ui.widget.min.js":1,"misc\/ui\/jquery.ui.mouse.min.js":1,"misc\/ui\/jquery.ui.sortable.min.js":1,"misc\/jquery.cookie.js":1,"misc\/jquery.form.js":1,"misc\/form-single-submit.js":1,"misc\/ajax.js":1,"sites\/all\/modules\/admin_menu\/admin_devel\/admin_devel.js":1,"misc\/progress.js":1,"sites\/all\/modules\/ctools\/js\/modal.js":1,"sites\/all\/modules\/cr_views\/js\/exit_intent.js":1,"sites\/all\/themes\/marinelli.del\/js\/banner\/marinelli_sticky_banner_non_game.js":1,"sites\/all\/themes\/marinelli.del\/js\/jquery.jsticky.js":1,"sites\/all\/themes\/marinelli.del\/js\/marinelli_marinelli.js":1},"css":{"sites\/all\/themes\/marinelli.del\/css\/reset\/reset.css":1,"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"misc\/ui\/jquery.ui.core.css":1,"misc\/ui\/jquery.ui.theme.css":1,"modules\/comment\/comment.css":1,"modules\/field\/theme\/field.css":1,"modules\/node\/node.css":1,"sites\/all\/modules\/relation\/relation_entity_collector\/relation_entity_collector.css":1,"modules\/user\/user.css":1,"modules\/forum\/forum.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/ckeditor\/css\/ckeditor.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"sites\/all\/modules\/ctools\/css\/modal.css":1,"sites\/all\/themes\/marinelli.del\/css\/grid\/grid_1000.css":1,"sites\/all\/themes\/marinelli.del\/css\/pages\/game-play-page.css":1,"sites\/all\/themes\/marinelli.del\/js\/simple-keyboard\/build\/css\/index.css":1,"sites\/all\/themes\/marinelli.del\/css\/fonts.css":1,"sites\/all\/themes\/marinelli.del\/css\/common.css":1,"sites\/all\/themes\/marinelli.del\/css\/links.css":1,"sites\/all\/themes\/marinelli.del\/css\/typography.css":1,"sites\/all\/themes\/marinelli.del\/css\/forms.css":1,"sites\/all\/themes\/marinelli.del\/css\/drupal.css":1,"sites\/all\/themes\/marinelli.del\/css\/layout.css":1,"sites\/all\/themes\/marinelli.del\/css\/primary-links.css":1,"sites\/all\/themes\/marinelli.del\/css\/slideshow.css":1,"sites\/all\/themes\/marinelli.del\/css\/secondary-links.css":1,"sites\/all\/themes\/marinelli.del\/css\/blocks.css":1,"sites\/all\/themes\/marinelli.del\/css\/node.css":1,"sites\/all\/themes\/marinelli.del\/css\/comments.css":1,"sites\/all\/themes\/marinelli.del\/css\/pages\/maintenance-page.css":1,"sites\/all\/themes\/marinelli.del\/css\/custom-views.css":1,"sites\/all\/themes\/marinelli.del\/css\/responsive.css":1,"sites\/all\/themes\/marinelli.del\/css\/print\/print.css":1,"sites\/all\/themes\/marinelli.del\/css\/css3\/css3.css":1,"sites\/all\/themes\/marinelli.del\/css\/css3\/css3_graphics.css":1}},"urlIsAjaxTrusted":{"\/search":true},"CToolsModal":{"loadingText":"Loading...","closeText":"Close Window","closeImage":"\u003Cimg typeof=\u0022foaf:Image\u0022 loading=\u0022lazy\u0022 src=\u0022https:\/\/classicreload.com\/sites\/all\/modules\/ctools\/images\/icon-close-window.png\u0022 alt=\u0022Close window\u0022 title=\u0022Close window\u0022 \/\u003E","throbber":"\u003Cimg typeof=\u0022foaf:Image\u0022 loading=\u0022lazy\u0022 src=\u0022https:\/\/classicreload.com\/sites\/all\/modules\/ctools\/images\/throbber.gif\u0022 alt=\u0022Loading\u0022 title=\u0022Loading...\u0022 \/\u003E"},"bounce-style":{"modalSize":{"type":"scale","width":0.5,"height":"auto","addHeight":0.7},"modalOptions":{"opacity":0.7,"background-color":"#ffffff"},"modalClass":"bounce-style","title":"What others are playing","closeText":"","loadingText":"","animation":"fadeIn","modalTheme":"bounce_message","animationSpeed":"fast"},"marinelli":{"bartext":"Slide Down","bartext2":"Slide Up"}});
+//--><!]]>
+</script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="theme-color" content="#054b81">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="/manifest.json"/>
+
+      </head>
+  <!--[if lt IE 7 ]> <body class="marinelli ie6 html not-front not-logged-in no-sidebars page-play page-play-microsoft-flight-simulator-v5html"> <![endif]-->
+  <!--[if IE 7 ]>    <body class="marinelli ie7 html not-front not-logged-in no-sidebars page-play page-play-microsoft-flight-simulator-v5html"> <![endif]-->
+  <!--[if IE 8 ]>    <body class="marinelli ie8 html not-front not-logged-in no-sidebars page-play page-play-microsoft-flight-simulator-v5html"> <![endif]-->
+  <!--[if IE 9 ]>    <body class="marinelli ie9 html not-front not-logged-in no-sidebars page-play page-play-microsoft-flight-simulator-v5html"> <![endif]-->
+  <!--[if gt IE 9]>  <body class="marinelli html not-front not-logged-in no-sidebars page-play page-play-microsoft-flight-simulator-v5html"> <![endif]-->
+  <!--[if !IE]><!-->
+  <body class="marinelli html not-front not-logged-in no-sidebars page-play page-play-microsoft-flight-simulator-v5html"> <!--<![endif]-->
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W8FG2GT"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <div id="skip-link">
+      <a href="#content" title="Jump to the main content of this page" class="element-invisible">Jump to Content</a>
+    </div>
+
+        
+<div id="totalContainer" class="game-page">
+      <!--start top section-->
+    <div id="top" class="outsidecontent">
+        <div id="header" class="row">
+            <!--start branding-->
+            <div id="logo-container">
+              <a href="/" title="ClassicReload.com - Play DOS Games Online"><img id="logo" typeof="foaf:Image" loading="lazy" src="https://classicreload.com/sites/default/files/logo11_0.webp" width="324" height="52" alt="" /></a>            </div>
+            <!--end branding-->
+            <div class="spot-wrapper">
+              <div data-aaad='true' data-aa-targeting='{"nogoogle":"false"}' data-aa-adunit='/127208727/cr_top_1'></div>
+              <div data-aaad='true' data-aa-targeting='{"nogoogle":"false"}' data-aa-adunit='/127208727/cr_mob_1_320v'></div>
+            </div>
+            <div class="fullscreen-btn-wrapper">
+              <button id="expandscreen"><img class="share-button" src="/sites/all/themes/marinelli.del/img/icons/fullscreen.svg" width="32px" height="32px"></button>
+            </div>
+        </div>
+    </div>
+    <!--end top section-->
+  
+  <!-- start contentWrapper-->
+  <div id="contentWrapper">
+          <div id="highlight">
+        <!-- start region -->
+<div class="region region region-highlight">
+  <div id="block-cr_views-bounce_message_link" class="block block-cr-views">
+        <div class="content">
+    <a href="/exit-intent/nojs" class="ctools-use-modal ctools-modal-bounce-style">Bounce</a>  </div>
+</div> <!-- /block --></div>
+<!-- end region -->      </div>
+    
+    
+    <!--start innercontent-->
+    <div id="innerContent">
+      <div class="flex-wrapper">
+        <div class="region-sidebar-first-wrapper">
+          <div class="spot-wrapper">
+            <div data-aaad='true' data-aa-targeting='{"nogoogle":"false"}' data-aa-adunit='/127208727/cr_right_1_small_square'></div>
+          </div>
+          <!-- <div class="save-load-buttons">
+            <a href="javascript:void(0)" id="create-backup" class="form-submit save">Backup saved games</a>
+            <form id="restore-backup" action="#" onsubmit="return false;" style="display:inline">
+              <a href="javascript:void(0)" class="form-submit load">
+                <label>Restore from backup
+                  <input type="file" accept=".save" style="display:none"\>
+                </label>
+              </a>
+            </form>
+          </div> -->
+        </div>
+
+        <!--start main content-->
+        <div class="main-content" id="siteContent">
+          <!--start drupal content-->
+          <div id="content">
+            <div class="game-window emulator-dos">
+              <script type="text/javascript">
+var loader_game = "msfs5"
+</script>              <div class="game-id hidden">microsoft-flight-simulator-v5-0-1zs</div>
+                                            <div class="games-button">
+                  <a href="#" onclick="return AJS.emulate();return false;" class="game-btn gstart">start</a>
+                </div>
+                <div id="jsdoswindow"></div>
+                <canvas id="canvas" width="640" height="400" style="background-image:url('https://classicreload.com/sites/default/files/microsoft-flight-simulator-v5.png')"></canvas>
+                                        </div>
+                        <!-- Control blocks for emulators -->
+                          <!-- Adds onscreen keyboard for touch devices -->
+            <div id="mobile-keyboard">
+              <div class="simple-keyboard-wrapper hidden">
+                <div class="simple-keyboard"></div>
+              </div>
+              <div class="show-keyboard-btn-wrapper hidden">
+                <div class="show-keyboard-btn">
+                  <span>▲ Show Keyboard</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="bottom-wrap">
+              <div class='spot-wrapper'>
+                <div data-aaad='true' data-aa-targeting='{"nogoogle":"false"}' data-aa-adunit='/127208727/cr_bottom_2'></div>
+                <div data-aaad='true' data-aa-targeting='{"nogoogle":"false"}' data-aa-adunit='/127208727/cr_mob_1'></div>
+              </div>
+            </div>
+          </div>
+          <!--end drupal content-->
+        </div>
+        <!--end main content-->
+        <div class="region-sidebar-second-wrapper">
+          <div class="spot-wrapper">
+            <div data-aaad='true' data-aa-targeting='{"nogoogle":"false"}' data-aa-adunit='/127208727/cr_right_2_small_square'></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--end innerContent-->
+  </div>
+  <!--end contentWrapper-->
+</div>
+    <script type="text/javascript" src="https://classicreload.com/sites/default/files/js/js_LK7WurUerBX2dV4RRXvr-wtXfn5iJIbQoIycGZBPMYc.js"></script>
+
+    <dialog id="thanks-message">
+      <div class="main-dialog-content main-dialog-thanks">
+        <div class="main-dialog-message">
+          <p>Thanks for disabling your ad blocker</p>
+        </div>
+        <div class="close-button">
+          <a class="main-dialog-close main-dialog-large-button" href="#">&#10006;</a>
+        </div>
+      </div>
+    </dialog>
+    <dialog id="main-dialog-window">
+      <div class="main-dialog-content main-dialog-warning">
+        <div class="main-dialog-message">
+          <img loading="lazy" width=100 height=100 src="/files/cr-logo.png">
+          <div>
+            <p>Some of the games on the site do not work properly with Ad Block.<br>Please whitelist the site or disable the Ad Block.</p>
+            <p>Need help disabling your ad blocker? <a class="show-guide" href="#">View our guide</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="main-dialog-content main-dialog-instructions">
+        <div class="main-dialog-message">
+          <strong>Please whitelist the site or disable the Ad Block.</strong>
+          <div class="tab-container">
+            <button class="page-left" disabled="disabled">◀</button>
+            <div class="tabs-scroll-wrapper">
+              <ul class="tabs primary">
+                <li class="adblocker-tab" data-page="other"><span>Other ad blockers</span></li>
+              </ul>
+            </div>
+            <button class="page-right">▶</button>
+          </div>
+          <div class="content-wrapper">
+            <div class="content" data-page="other">
+              <div class="left-column">
+                <p>
+                  <strong>Step 1:</strong><br>
+                  Type "chrome://extensions" into your browser's address bar and click enter.
+                </p>
+                <img loading="lazy" src="/files/help/instructions/otherl1.png">
+                <p>
+                  <strong>Step 2:</strong><br>
+                  You'll be taken to a page with a list of extensions - find the extension(s) with "ad blocker" or something similar either in the title or description.
+                </p>
+                <p>
+                  To disable the ad blocker, toggle the blue bar to the off position, or remove it altogether.
+                </p>
+                <img loading="lazy" src="/files/help/instructions/otherl2.png">
+              </div>
+              <div class="right-column">
+                <p>
+                  <strong>Step 1:</strong><br>
+                  Go to the classicreload site. In the top right of your browser screen, find an icon with "ad blocker" or something similar in the title (hover or click the icons to find out what they do.)
+                </p>
+                <img loading="lazy" src="/files/help/instructions/otherr1.png">
+                <p>
+                  <strong>Step 2:</strong><br>
+                  Once you've located the ad blocker, click it and select an option that says something like "Pause on this site" or "disable for this site".
+                </p>
+                <img loading="lazy" src="/files/help/instructions/otherr2.png">
+                <p>
+                  <strong>Step 3:</strong><br>
+                  Still seeing this message? Try refreshing the page.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="bottom">
+            <div class="not-sure">Not sure which ad blocker you have? <a class="notSureButton" href="#">Click here</a></div>
+            <a class="browser-help" href="https://support.google.com/chrome/?hl=en-GB#topic=7438008" rel="noopener nofollow noreferrer" target="_blank">Get help on Chrome</a>
+          </div>
+        </div>
+      </div>
+    </dialog>
+  </body>
+</html>

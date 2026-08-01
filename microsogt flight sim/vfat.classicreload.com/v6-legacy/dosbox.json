@@ -1,0 +1,7 @@
+{
+    "name": "DOSBox",
+    "native_resolution": [640,480],
+    "extra_args": [""],
+    "js_filename": "dosbox.js.gz",
+    "driver":  "dosbox-sync" 
+}

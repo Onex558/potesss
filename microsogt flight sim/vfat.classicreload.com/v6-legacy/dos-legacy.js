@@ -1,0 +1,1 @@
+  AJS.emulate_setup({"url":"\/stream\/msdos_"+(loader_game)+"\/"+(loader_game)+".zip?module=dosbox&scale=1","identifier":"msdos_"+(loader_game),"module":"dosbox","scale":"1","path":"msdos_"+(loader_game)+"\/"+(loader_game)+".zip"});
