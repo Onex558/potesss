@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head><base href="/GameFilesUpdate/179219/28/"><link rel="canonical" href="https://plicy.net/GamePlay/179219" /><script src="/action/lib/PLiCyWebAudioTrack.js?20241021"></script>
+        <meta charset="UTF-8">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="viewport" content="user-scalable=no">
+        <link rel="icon" href="icon/icon.png" type="image/png">
+        <link rel="apple-touch-icon" href="icon/icon.png">
+        <link rel="stylesheet" type="text/css" href="css/game.css">
+        <title> ZENO remake - PLiCy</title>
+    </head>
+    <body style="background-color: black">
+                <script src="js/main.js"></script>
+        <script>
+            Main.prototype.initEffekseerRuntime = function(){
+                Graphics._createPixiApp = function() {
+                    try {
+                        this._setupPixi();
+                        this._app = new PIXI.Application({
+                            view: this._canvas,
+                            autoStart: false,
+                            preserveDrawingBuffer : true
+                        });
+                        this._app.ticker.remove(this._app.render, this._app);
+                        this._app.ticker.add(this._onTick, this);
+                    } catch (e) {
+                        this._app = null;
+                    }
+                };
+                const onLoad = this.onEffekseerLoad.bind(this);
+                const onError = this.onEffekseerError.bind(this);
+                effekseer.initRuntime(effekseerWasmUrl, onLoad, onError);
+            };
+        </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PYQHW74DHC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-PYQHW74DHC');
+    if(0 !== 0){
+        dataLayer.push({'user_id': 0});
+    }
+</script><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"c5d28f0cf0024917965a1a0ce5e30b93","r":1}' crossorigin="anonymous"></script>
+</body>
+</html>
