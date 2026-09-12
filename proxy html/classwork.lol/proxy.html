@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="/keyword-homoglyphs.js?v=20260903-2" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>kiwi</title>
+  <link rel="shortcut icon" href="/images/kiwi-logo.png" />
+  <script src="/starting-page-return.js" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="/unblocker-theme.js?v=20260907-2"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --kiwi: #30ff00;
+      --kiwi-rgb: 48, 255, 0;
+      --kiwi-dim: #1ecc00;
+      --kiwi-glow: rgba(48,255,0,.2);
+      --kiwi-hue: 0deg;
+      --kiwi-saturation: 1;
+      --kiwi-logo-image: url("/images/kiwi-logo.png");
+    }
+
+    body {
+      background: color-mix(in srgb, var(--kiwi) 4%, #050505);
+      color: #fff;
+      font-family: 'Inter', system-ui, sans-serif;
+      height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* ── Stars canvas ── */
+    #stars-canvas {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Nav bar ── */
+    #nav {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0 14px;
+      height: 52px;
+      background: #000;
+      border-bottom: 1px solid rgba(var(--kiwi-rgb),.12);
+      flex-shrink: 0;
+    }
+
+    .nav-btn {
+      color: var(--kiwi) !important;
+    }
+    .nav-btn:hover {
+      background: rgba(var(--kiwi-rgb),.12) !important;
+      color: var(--kiwi) !important;
+    }
+
+    #nav-divider {
+      width: 1px;
+      height: 22px;
+      background: rgba(255,255,255,.12);
+      flex-shrink: 0;
+      margin: 0 2px;
+    }
+
+    .nav-btn {
+      background: none;
+      border: none;
+      color: rgba(255,255,255,.45);
+      cursor: pointer;
+      border-radius: 8px;
+      width: 34px;
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background .15s, color .15s;
+    }
+    .nav-btn:hover { background: rgba(255,255,255,.08); color: var(--kiwi); }
+    .nav-btn:disabled { opacity: .25; cursor: default; }
+    .nav-btn svg { width: 16px; height: 16px; }
+
+    #bar-wrap {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 10px;
+      padding: 0 12px;
+      height: 36px;
+      gap: 8px;
+      transition: border-color .15s, box-shadow .15s;
+      position: relative;
+    }
+    #bar-wrap:focus-within {
+      border-color: var(--kiwi);
+      box-shadow: 0 0 0 3px rgba(var(--kiwi-rgb),.12);
+    }
+
+    #ddg-icon { width: 15px; height: 15px; flex-shrink: 0; opacity: 1; }
+
+    #url-bar {
+      flex: 1;
+      background: none;
+      border: none;
+      outline: none;
+      color: #fff;
+      font-size: 13.5px;
+      font-family: 'Inter', system-ui, sans-serif;
+      caret-color: var(--kiwi);
+    }
+    #url-bar::placeholder { color: rgba(255,255,255,.3); }
+
+    #go-btn {
+      background: var(--kiwi);
+      color: #061006;
+      border: none;
+      border-radius: 7px;
+      padding: 0 16px;
+      height: 30px;
+      font-size: 13px;
+      font-weight: 700;
+      font-family: 'Inter', system-ui, sans-serif;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: background .15s, box-shadow .15s;
+      letter-spacing: .01em;
+    }
+    #go-btn:hover {
+      background: color-mix(in srgb, var(--kiwi) 84%, white);
+      box-shadow: 0 0 14px rgba(var(--kiwi-rgb),.4);
+    }
+
+    /* ── Frame / content area ── */
+    #frame-wrap {
+      flex: 1;
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    #proxy-frame { width: 100%; height: 100%; border: none; }
+
+    #load-bar {
+      position: absolute;
+      top: 0; left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--kiwi-dim), var(--kiwi));
+      box-shadow: 0 0 10px var(--kiwi);
+      width: 0%;
+      z-index: 5;
+      pointer-events: none;
+    }
+
+    /* ── Start screen ── */
+    #start-screen {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      z-index: 4;
+      overflow: hidden;
+    }
+    #start-screen.hidden { display: none; }
+
+    /* Radial glow behind logo */
+    #hero-glow {
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 520px;
+      height: 520px;
+      background: radial-gradient(circle, rgba(var(--kiwi-rgb),.22) 0%, rgba(var(--kiwi-rgb),.06) 40%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+
+    /* Hero content sits above glow/waves */
+    #hero-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    #kiwi-logo {
+      width: 110px;
+      height: 110px;
+      object-fit: contain;
+      content: var(--kiwi-logo-image);
+      filter: drop-shadow(0 4px 32px rgba(var(--kiwi-rgb),.35));
+      animation: float 5s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50%       { transform: translateY(-6px); }
+    }
+
+    #hero-content h2 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -.02em;
+      text-shadow: 0 0 30px rgba(var(--kiwi-rgb),.4);
+    }
+
+    #hero-content p {
+      color: rgba(255,255,255,.45);
+      font-size: 14px;
+      text-align: center;
+      line-height: 1.65;
+    }
+
+    #sw-status {
+      font-size: 12px;
+      color: rgba(255,255,255,.25);
+      margin-top: -4px;
+    }
+    #sw-status.ready { color: var(--kiwi); }
+    #sw-status.error { color: #f87171; }
+
+    /* ── Suggestions dropdown ── */
+    #suggestions {
+      position: absolute;
+      top: calc(100% + 6px);
+      left: 0; right: 0;
+      background: #0e0e0e;
+      border: 1px solid rgba(var(--kiwi-rgb),.15);
+      border-radius: 10px;
+      overflow: hidden;
+      z-index: 100;
+      display: none;
+      box-shadow: 0 12px 32px rgba(0,0,0,.7);
+    }
+    #suggestions.show { display: block; }
+    .sug-item {
+      padding: 9px 14px;
+      font-size: 13px;
+      color: rgba(255,255,255,.75);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .sug-item:hover { background: rgba(var(--kiwi-rgb),.08); color: #fff; }
+    .sug-icon { opacity: .4; font-size: 11px; flex-shrink: 0; }
+  </style>
+<link rel="dns-prefetch" href="//bmwguide.org"><link rel="preconnect" href="https://bmwguide.org" crossorigin><link rel="dns-prefetch" href="//pagead2.googlesyndication.com"><link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin><link rel="dns-prefetch" href="//googleads.g.doubleclick.net"><link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin><script>document.documentElement.classList.remove("kiwi-mrec-left","kiwi-mrec-right");document.documentElement.classList.add("kiwi-sides");</script><script src="/sellauth-checkout.js"></script><script src="https://static.sellauth.com/embed/v3.min.js" defer></script><script src="/ad-toggle.js?v=20260909-2" defer></script></head>
+<body>
+
+  <canvas id="stars-canvas"></canvas>
+
+  <div id="nav">
+    <button class="nav-btn" id="btn-home" title="Home">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+    </button>
+    <div id="nav-divider"></div>
+
+    <button class="nav-btn" id="btn-back" title="Back" disabled>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <button class="nav-btn" id="btn-fwd" title="Forward" disabled>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+    <button class="nav-btn" id="btn-reload" title="Reload">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.5"/></svg>
+    </button>
+
+    <div id="bar-wrap">
+      <img id="ddg-icon" src="/images/ddg-logo.png" alt="DuckDuckGo" />
+      <input id="url-bar" type="text" placeholder="search duckduckgo or enter a url…" autocomplete="off" spellcheck="false" />
+      <div id="suggestions"></div>
+    </div>
+
+    <button id="go-btn">go</button>
+  </div>
+
+  <div id="frame-wrap">
+    <div id="load-bar"></div>
+    <div id="start-screen">
+      <div id="hero-glow"></div>
+      <div id="hero-content">
+        <img id="kiwi-logo" src="/images/kiwi-logo.png" alt="kiwi" />
+        <h2>kiwi unblоckеr</h2>
+        <p>type anything to search with duckduckgo,<br>or paste a url to browse it privately.</p>
+        <div id="sw-status">registering service worker…</div>
+      </div>
+    </div>
+    <iframe id="proxy-frame" allow="fullscreen; autoplay; clipboard-read; clipboard-write; gamepad"></iframe>
+  </div>
+
+  <script>
+  (function () {
+    var canvas = document.getElementById('stars-canvas');
+    var ctx = canvas.getContext('2d');
+    var stars = [];
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    function initStars() {
+      stars = [];
+      var count = Math.floor((canvas.width * canvas.height) / 6000);
+      for (var i = 0; i < count; i++) {
+        stars.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          r: Math.random() * 1.2 + 0.2,
+          o: Math.random() * 0.6 + 0.1,
+          speed: Math.random() * 0.003 + 0.001,
+          phase: Math.random() * Math.PI * 2
+        });
+      }
+    }
+    function draw(t) {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (var i = 0; i < stars.length; i++) {
+        var s = stars[i];
+        var opacity = s.o * (0.6 + 0.4 * Math.sin(t * s.speed + s.phase));
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(' + (window.kiwiUnblockerStarRgb || '200,255,180') + ',' + opacity + ')';
+        ctx.fill();
+      }
+      requestAnimationFrame(draw);
+    }
+    resize();
+    initStars();
+    window.addEventListener('resize', function () { resize(); initStars(); });
+    requestAnimationFrame(draw);
+  })();
+  </script>
+
+  <script src="/uv/uv.bundle.js"></script>
+  <script src="/uv/uv.config.js"></script>
+  <script>
+  (function () {
+    var bar     = document.getElementById('url-bar');
+    var frame   = document.getElementById('proxy-frame');
+    var loadBar = document.getElementById('load-bar');
+    var start   = document.getElementById('start-screen');
+    var sugs    = document.getElementById('suggestions');
+    var swStatus= document.getElementById('sw-status');
+    var btnBack = document.getElementById('btn-back');
+    var btnFwd  = document.getElementById('btn-fwd');
+    var hist    = [];
+    var hIdx    = -1;
+    var swReady = false;
+    var sugTimer;
+
+    /* ── Service Worker + Transport ── */
+    async function registerSW() {
+      try {
+        // 1. Set up the bare-mux transport so UV can actually fetch pages
+        var BareMux = await import('/uv/baremux.mjs');
+        var conn = new BareMux.BareMuxConnection('/uv/baremux.worker.js');
+        await conn.setTransport('/uv/transport.mjs', [{ proxyHttp: '/proxy-http/', bare: '/bare/', wsProxy: '/proxy-ws/' }]);
+
+        // 2. Register the UV service worker
+        var reg = await navigator.serviceWorker.register('/uv/sw.js', { scope: '/service/' });
+        await new Promise(function (resolve) {
+          if (reg.active) return resolve();
+          var sw = reg.installing || reg.waiting;
+          if (!sw) return resolve();
+          sw.addEventListener('statechange', function () {
+            if (sw.state === 'activated') resolve();
+          });
+        });
+        swReady = true;
+        swStatus.textContent = '';
+        swStatus.className = 'ready';
+      } catch (e) {
+        swStatus.textContent = 'setup failed: ' + e.message;
+        swStatus.className = 'error';
+        console.error(e);
+      }
+    }
+    registerSW().then(function () {
+      /* deep link: /proxy.html?go=<url> (or #go=) auto-opens that site once the proxy is ready */
+      var m = location.search.match(/[?&]go=([^&]+)/) || location.hash.match(/^#go=(.+)/);
+      if (m && swReady) {
+        var target = decodeURIComponent(m[1]);
+        navigate(toProxied(target), target);
+      }
+    });
+
+    /* ── Helpers ── */
+    function isUrl(s) {
+      if (/^https?:\/\//i.test(s)) return true;
+      if (/^[a-z0-9-]+(\.[a-z]{2,})+/i.test(s) && !s.includes(' ')) return true;
+      return false;
+    }
+
+    function toProxied(raw) {
+      raw = raw.trim();
+      if (!raw) return null;
+      var target;
+      if (/^https?:\/\//i.test(raw)) {
+        target = raw;
+      } else if (isUrl(raw)) {
+        target = 'https://' + raw;
+      } else {
+        target = 'https://duckduckgo.com/?q=' + encodeURIComponent(raw) + '&kae=d&k1=-1&kp=-2';
+      }
+      return __uv$config.prefix + __uv$config.encodeUrl(target);
+    }
+
+    function animLoad(restart) {
+      loadBar.style.transition = 'none';
+      if (restart) loadBar.style.width = '0%';
+      void loadBar.offsetWidth;
+      loadBar.style.transition = 'width 1.8s ease';
+      loadBar.style.width = '85%';
+    }
+    function finishLoad() {
+      loadBar.style.transition = 'width .2s ease';
+      loadBar.style.width = '100%';
+      setTimeout(function () {
+        loadBar.style.transition = 'width .4s ease';
+        loadBar.style.width = '0%';
+      }, 350);
+    }
+
+    function navigate(proxiedPath, displayUrl, push) {
+      if (!proxiedPath) return;
+      start.classList.add('hidden');
+      animLoad(true);
+      frame.src = proxiedPath;
+      if (displayUrl) bar.value = displayUrl;
+      if (push !== false) {
+        hist = hist.slice(0, hIdx + 1);
+        hist.push({ proxy: proxiedPath, display: displayUrl || proxiedPath });
+        hIdx = hist.length - 1;
+      }
+      updateNav();
+    }
+
+    function updateNav() {
+      btnBack.disabled = hIdx <= 0;
+      btnFwd.disabled  = hIdx >= hist.length - 1;
+    }
+
+    frame.addEventListener('load', function () {
+      finishLoad();
+      /* Track internal iframe navigations (link clicks inside proxied pages) */
+      try {
+        var loc = frame.contentWindow.location.href;
+        if (!loc || loc === 'about:blank') return;
+        var currentEntry = hist[hIdx];
+        if (currentEntry && currentEntry.proxy === loc) return; /* same page, no-op */
+        /* Decode display URL from UV path if possible */
+        var display = loc;
+        try {
+          var prefix = __uv$config.prefix;
+          if (loc.includes(prefix)) {
+            var encoded = loc.slice(loc.indexOf(prefix) + prefix.length);
+            display = __uv$config.decodeUrl(encoded);
+          }
+        } catch(e) {}
+        /* Push to history, dropping any forward entries */
+        hist = hist.slice(0, hIdx + 1);
+        hist.push({ proxy: loc, display: display });
+        hIdx = hist.length - 1;
+        bar.value = display;
+        updateNav();
+      } catch(e) { /* cross-origin guard */ }
+    });
+
+    /* ── Go ── */
+    function go() {
+      var raw = bar.value.trim();
+      if (!raw) return;
+      var proxied = toProxied(raw);
+      var display = isUrl(raw) ? (/^https?:\/\//i.test(raw) ? raw : 'https://' + raw) : raw;
+      navigate(proxied, display);
+      sugs.classList.remove('show');
+      bar.blur();
+    }
+
+    document.getElementById('go-btn').addEventListener('click', go);
+    bar.addEventListener('keydown', function (e) { if (e.key === 'Enter') go(); });
+
+    /* ── Nav buttons ── */
+    btnBack.addEventListener('click', function () {
+      if (hIdx > 0) { hIdx--; var e = hist[hIdx]; navigate(e.proxy, e.display, false); }
+    });
+    btnFwd.addEventListener('click', function () {
+      if (hIdx < hist.length - 1) { hIdx++; var e = hist[hIdx]; navigate(e.proxy, e.display, false); }
+    });
+    document.getElementById('btn-reload').addEventListener('click', function () {
+      if (frame.src && frame.src !== 'about:blank') {
+        animLoad(true);
+        frame.contentWindow.location.reload();
+      }
+    });
+    function goHome() {
+      var q = 'https://duckduckgo.com/?kae=d&k1=-1&kp=-2';
+      navigate(toProxied(q), q);
+    }
+    document.getElementById('btn-home').addEventListener('click', goHome);
+
+    /* ── Autocomplete suggestions ── */
+    var sugController = null;
+    bar.addEventListener('input', function () {
+      clearTimeout(sugTimer);
+      var val = bar.value.trim();
+      if (!val) { sugs.classList.remove('show'); return; }
+      sugTimer = setTimeout(function () { fetchSugs(val); }, 220);
+    });
+
+    function fetchSugs(q) {
+      if (sugController) sugController.abort();
+      sugController = new AbortController();
+      fetch('https://duckduckgo.com/ac/?q=' + encodeURIComponent(q) + '&type=list', {
+        signal: sugController.signal
+      }).then(function (r) { return r.json(); }).then(function (data) {
+        renderSugs(q, (data && data[1]) ? data[1].slice(0, 6) : []);
+      }).catch(function () {});
+    }
+
+    function escHtml(s) {
+      return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    }
+
+    function renderSugs(q, items) {
+      sugs.innerHTML = '';
+      var first = document.createElement('div');
+      first.className = 'sug-item';
+      if (isUrl(q)) {
+        first.innerHTML = '<span class="sug-icon">🔗</span>' + escHtml(q.startsWith('http') ? q : 'https://' + q);
+        first.addEventListener('click', function () { bar.value = q; go(); });
+      } else {
+        first.innerHTML = '<span class="sug-icon">🔍</span>Search: <strong style="margin-left:4px">' + escHtml(q) + '</strong>';
+        first.addEventListener('click', function () { bar.value = q; go(); });
+      }
+      sugs.appendChild(first);
+      items.forEach(function (item) {
+        var el = document.createElement('div');
+        el.className = 'sug-item';
+        el.innerHTML = '<span class="sug-icon">🔍</span>' + escHtml(item);
+        el.addEventListener('click', function () { bar.value = item; go(); });
+        sugs.appendChild(el);
+      });
+      sugs.classList.add('show');
+    }
+
+    document.addEventListener('click', function (e) {
+      if (!document.getElementById('bar-wrap').contains(e.target)) sugs.classList.remove('show');
+    });
+
+    /* ── Ctrl+L to focus bar ── */
+    document.addEventListener('keydown', function (e) {
+      if ((e.ctrlKey || e.metaKey) && e.key === 'l') { e.preventDefault(); bar.focus(); bar.select(); }
+    });
+  })();
+  </script>
+<script src="/starting-page-return.js" defer></script>
+<script src="/kiwi-antiblock.js" defer></script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"2968c388d735452f8bd1ab25a9718e25","r":1,"spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>
